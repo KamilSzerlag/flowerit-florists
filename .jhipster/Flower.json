@@ -1,0 +1,52 @@
+{
+  "name": "Flower",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "State",
+      "fieldValues": "BAD_CONDITIONS,GOOD_CONDITIONS,WATERING_NEEDED,LIGHT_NEEDED"
+    },
+    {
+      "fieldName": "wikiReference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "deviceId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ownerId",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "javadoc": "Entities for Flortists",
+  "entityTableName": "flowers",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["flowerit_gateway", "florists"],
+  "microserviceName": "florists",
+  "clientRootFolder": "florists",
+  "databaseType": "mongodb",
+  "changelogDate": "20211110201507"
+}
