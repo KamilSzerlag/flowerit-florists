@@ -90,6 +90,16 @@ jhipster:
         base64-secret: OWM5ZTdlNzBiNTIxZTJhNjc4NjlkMGJjN2UzODljMWZjMGRlNWFkNTRjOTgzODRhMzA3ZDU4ZDg3NDFiN2EwNTY5NzM3YThhZWZmYWM5NzFiNmQyNjI1N2NiNmM5ZTA5MmYzMTNlMGY0MDRlYWYwOTc4MzM1OGQzNjdjODFjYTE=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
+kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    group.id: florists
+    auto.offset.reset: earliest
+  producer:
+    key.serializer: org.apache.kafka.common.serialization.StringSerializer
+    value.serializer: org.apache.kafka.common.serialization.StringSerializer
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class

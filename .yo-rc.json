@@ -14,7 +14,7 @@
     "enableTranslation": true,
     "jhiPrefix": "jhi",
     "languages": ["en"],
-    "messageBroker": false,
+    "messageBroker": "kafka",
     "prodDatabaseType": "mongodb",
     "searchEngine": false,
     "skipClient": true,
