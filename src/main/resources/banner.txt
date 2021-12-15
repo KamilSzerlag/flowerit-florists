@@ -1,10 +1,9 @@
+${AnsiColor.BRIGHT_GREEN}                                                                      ___   ___
+${AnsiColor.BRIGHT_GREEN}    //   / /                                                             / /
+${AnsiColor.BRIGHT_GREEN}   //___        //      ___                       ___        __         / /      __  ___
+${AnsiColor.BRIGHT_GREEN}  / ___        //     //   ) )   //  / /  / /   //___) )   //  ) )     / /        / /
+${AnsiColor.BRIGHT_GREEN} //           //     //   / /   //  / /  / /   //         //          / /        / /
+${AnsiColor.BRIGHT_GREEN}//           //     ((___/ /   ((__( (__/ /   ((____     //        __/ /___     / /
 
-  ${AnsiColor.GREEN}      ██╗${AnsiColor.RED} ██╗   ██╗ ████████╗ ███████╗   ██████╗ ████████╗ ████████╗ ███████╗
-  ${AnsiColor.GREEN}      ██║${AnsiColor.RED} ██║   ██║ ╚══██╔══╝ ██╔═══██╗ ██╔════╝ ╚══██╔══╝ ██╔═════╝ ██╔═══██╗
-  ${AnsiColor.GREEN}      ██║${AnsiColor.RED} ████████║    ██║    ███████╔╝ ╚█████╗     ██║    ██████╗   ███████╔╝
-  ${AnsiColor.GREEN}██╗   ██║${AnsiColor.RED} ██╔═══██║    ██║    ██╔════╝   ╚═══██╗    ██║    ██╔═══╝   ██╔══██║
-  ${AnsiColor.GREEN}╚██████╔╝${AnsiColor.RED} ██║   ██║ ████████╗ ██║       ██████╔╝    ██║    ████████╗ ██║  ╚██╗
-  ${AnsiColor.GREEN} ╚═════╝ ${AnsiColor.RED} ╚═╝   ╚═╝ ╚═══════╝ ╚═╝       ╚═════╝     ╚═╝    ╚═══════╝ ╚═╝   ╚═╝
-
-${AnsiColor.BRIGHT_BLUE}:: JHipster 🤓  :: Running Spring Boot ${spring-boot.version} ::
-:: https://www.jhipster.tech ::${AnsiColor.DEFAULT}
+${AnsiColor.BRIGHT_MAGENTA}:: FlowerIt - Florists  ::
+${AnsiColor.BRIGHT_GREEN}  :: Running Spring Boot ${spring-boot.version} ::

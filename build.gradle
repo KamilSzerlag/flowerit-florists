@@ -66,9 +66,7 @@ idea {
     module {
         excludeDirs += files("node_modules")
     }
-}
 
-eclipse {
     sourceSets {
         main {
             java {
@@ -231,6 +229,7 @@ dependencies {
     testImplementation "org.testcontainers:kafka"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+    compileOnly "org.projectlombok:lombok:1.16.16"
 }
 
 if (project.hasProperty("gae")) {

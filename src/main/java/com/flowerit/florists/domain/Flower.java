@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
  * Entities for Flortists
  */
 @Document(collection = "flowers")
-public class Flower implements Serializable {
+public class Flower extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
