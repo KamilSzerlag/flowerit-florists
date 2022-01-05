@@ -1,5 +1,6 @@
 package com.flowerit.florists.security.jwt;
 
+import com.flowerit.florists.security.DomainUser;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -24,6 +25,7 @@ public class TokenProvider {
     private final Logger log = LoggerFactory.getLogger(TokenProvider.class);
 
     private static final String AUTHORITIES_KEY = "auth";
+    private static final String NAME_KEY = "name";
 
     private final Key key;
 
@@ -83,7 +85,7 @@ public class TokenProvider {
             .map(SimpleGrantedAuthority::new)
             .collect(Collectors.toList());
 
-        User principal = new User(claims.getSubject(), "", authorities);
+        DomainUser principal = new DomainUser(claims.getSubject(), (String) claims.get(NAME_KEY), "", authorities);
 
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }

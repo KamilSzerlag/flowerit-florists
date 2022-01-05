@@ -23,19 +23,39 @@ public final class SecurityUtils {
      */
     public static Optional<String> getCurrentUserLogin() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
-        return Optional.ofNullable(extractPrincipal(securityContext.getAuthentication()));
+        return Optional.ofNullable(extractPrincipalUsername(securityContext.getAuthentication()));
     }
 
-    private static String extractPrincipal(Authentication authentication) {
+    private static String extractPrincipalUsername(Authentication authentication) {
         if (authentication == null) {
             return null;
         } else if (authentication.getPrincipal() instanceof UserDetails) {
-            UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
-            return springSecurityUser.getUsername();
-        } else if (authentication.getPrincipal() instanceof String) {
-            return (String) authentication.getPrincipal();
+            return extractUsername(authentication);
         }
         return null;
+    }
+
+    private static String extractUsername(Authentication authentication) {
+        UserDetails springSecurityUser = (UserDetails) authentication.getPrincipal();
+        return springSecurityUser.getUsername();
+    }
+
+    public static Optional<String> getCurrentUserId() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        return extractPrincipalDomainUser(securityContext.getAuthentication()).map(DomainUser::getId);
+    }
+
+    private static Optional<DomainUser> extractPrincipalDomainUser(Authentication authentication) {
+        if (authentication == null) {
+            return Optional.empty();
+        } else if (authentication.getPrincipal() instanceof DomainUser) {
+            return Optional.ofNullable(extractDomainUser(authentication));
+        }
+        return Optional.empty();
+    }
+
+    private static DomainUser extractDomainUser(Authentication authentication) {
+        return (DomainUser) authentication.getPrincipal();
     }
 
     /**

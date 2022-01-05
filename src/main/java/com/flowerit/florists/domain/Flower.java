@@ -3,6 +3,7 @@ package com.flowerit.florists.domain;
 import com.flowerit.florists.domain.enumeration.State;
 import java.io.Serializable;
 import javax.validation.constraints.*;
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -42,6 +43,7 @@ public class Flower extends AbstractAuditingEntity implements Serializable {
     private String deviceId;
 
     @Field("owner_id")
+    @CreatedBy
     private String ownerId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
