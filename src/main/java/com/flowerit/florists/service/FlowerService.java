@@ -73,6 +73,17 @@ public class FlowerService {
     }
 
     /**
+     * Get all the flowers that belongs to User.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    public Page<FlowerDTO> findByUser(String userId, Pageable pageable) {
+        log.debug("Request to get all Flowers belongs to User");
+        return flowerRepository.findByCreatedBy(userId, pageable).map(flowerMapper::toDto);
+    }
+
+    /**
      * Get one flower by id.
      *
      * @param id the id of the entity.

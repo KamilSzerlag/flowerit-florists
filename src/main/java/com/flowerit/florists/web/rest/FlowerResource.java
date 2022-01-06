@@ -1,11 +1,13 @@
 package com.flowerit.florists.web.rest;
 
 import com.flowerit.florists.repository.FlowerRepository;
+import com.flowerit.florists.security.DomainUser;
 import com.flowerit.florists.service.FlowerService;
 import com.flowerit.florists.service.dto.FlowerDTO;
 import com.flowerit.florists.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.Principal;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -19,6 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import tech.jhipster.web.util.HeaderUtil;
@@ -145,9 +148,9 @@ public class FlowerResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of flowers in body.
      */
     @GetMapping("/flowers")
-    public ResponseEntity<List<FlowerDTO>> getAllFlowers(Pageable pageable) {
+    public ResponseEntity<List<FlowerDTO>> getAllFlowers(Pageable pageable, @AuthenticationPrincipal DomainUser domainUser) {
         log.debug("REST request to get a page of Flowers");
-        Page<FlowerDTO> page = flowerService.findAll(pageable);
+        Page<FlowerDTO> page = flowerService.findByUser(domainUser.getId(), pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
