@@ -20,7 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
  * Service Implementation for managing {@link Flower}.
  */
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class FlowerService {
 
