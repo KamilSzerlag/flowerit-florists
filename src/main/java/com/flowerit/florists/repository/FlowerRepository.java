@@ -3,6 +3,7 @@ package com.flowerit.florists.repository;
 import com.flowerit.florists.domain.Flower;
 import com.flowerit.florists.service.dto.FlowerDTO;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -16,4 +17,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface FlowerRepository extends MongoRepository<Flower, String> {
     Page<Flower> findByCreatedBy(String userId, Pageable pageable);
+
+    Optional<Flower> findFirstByDeviceId(String deviceId);
 }

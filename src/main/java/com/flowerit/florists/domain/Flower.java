@@ -1,6 +1,7 @@
 package com.flowerit.florists.domain;
 
 import com.flowerit.florists.domain.enumeration.State;
+import com.flowerit.florists.service.dto.MeasurementDTO;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import org.springframework.data.annotation.CreatedBy;
@@ -45,6 +46,9 @@ public class Flower extends AbstractAuditingEntity implements Serializable {
     @Field("owner_id")
     @CreatedBy
     private String ownerId;
+
+    @Field("measurement")
+    private Measurement measurement;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -165,7 +169,24 @@ public class Flower extends AbstractAuditingEntity implements Serializable {
         this.ownerId = ownerId;
     }
 
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
+    public Measurement getMeasurement() {
+        return measurement;
+    }
+
+    /**
+     * Method in accordance with
+     * DDD Convention
+     *
+     * @param measurementDTO
+     * @return
+     */
+    public Flower updateMeasurement(final MeasurementDTO measurementDTO) {
+        if (measurementDTO == null) {
+            throw new IllegalArgumentException("Measurement object can not be null!");
+        }
+        this.measurement = new Measurement(measurementDTO.getTemperature(), measurementDTO.getCapacitive(), measurementDTO.getLux());
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {

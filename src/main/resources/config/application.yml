@@ -136,6 +136,15 @@ spring:
   output:
     ansi:
       console-available: true
+  kafka:
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      client-id: florists-service
+      properties:
+        '[spring.json.value.default.type]': 'com.flowerit.florists.service.dto.MeasurementDTO'
+        '[spring.json.trusted.packages]': '*'
+        '[spring.json.add.type.headers]': false
 
 server:
   servlet:

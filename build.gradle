@@ -19,6 +19,7 @@ plugins {
     id "org.sonarqube"
     id "io.spring.nohttp"
     id "com.github.andygoossens.gradle-modernizer-plugin"
+    id "io.franzbecker.gradle-lombok"
     //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
@@ -187,6 +188,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-actuator"
     implementation "org.springframework.boot:spring-boot-starter-data-mongodb"
     implementation "org.apache.kafka:kafka-clients"
+    implementation "org.springframework.kafka:spring-kafka:${springKafkaVersion}"
     implementation "org.springframework.boot:spring-boot-starter-security"
     implementation ("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
@@ -229,7 +231,6 @@ dependencies {
     testImplementation "org.testcontainers:kafka"
     developmentOnly "org.springframework.boot:spring-boot-devtools:${springBootVersion}"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
-    compileOnly "org.projectlombok:lombok:1.16.16"
 }
 
 if (project.hasProperty("gae")) {

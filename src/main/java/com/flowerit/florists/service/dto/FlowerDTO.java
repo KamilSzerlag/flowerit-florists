@@ -31,6 +31,8 @@ public class FlowerDTO implements Serializable {
 
     private String ownerId;
 
+    private MeasurementDTO measurement;
+
     public String getId() {
         return id;
     }
@@ -101,6 +103,14 @@ public class FlowerDTO implements Serializable {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public MeasurementDTO getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(MeasurementDTO measurement) {
+        this.measurement = measurement;
     }
 
     @Override
