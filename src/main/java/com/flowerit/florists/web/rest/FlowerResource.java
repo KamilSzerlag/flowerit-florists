@@ -64,7 +64,7 @@ public class FlowerResource {
         if (flowerDTO.getId() != null) {
             throw new BadRequestAlertException("A new flower cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        FlowerDTO result = flowerService.update(flowerDTO);
+        FlowerDTO result = flowerService.save(flowerDTO);
         return ResponseEntity
             .created(new URI("/api/flowers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId()))
@@ -98,7 +98,7 @@ public class FlowerResource {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
 
-        FlowerDTO result = flowerService.save(flowerDTO);
+        FlowerDTO result = flowerService.update(flowerDTO);
         return ResponseEntity
             .ok()
             .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, flowerDTO.getId()))
